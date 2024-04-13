@@ -2,7 +2,9 @@
 /dist
 /node_modules
 .env
-*/database
+*/database/pgadmin_data
+*/database/postgres_data
+
 
 # Logs
 logs
