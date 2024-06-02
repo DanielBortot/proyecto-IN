@@ -39,5 +39,5 @@ export class RegistroContrato {
         type: "enum",
         enum: EnumEstadoContrato,
     })
-    estado_contarto: EnumEstadoContrato;
+    estado_contrato: EnumEstadoContrato;
 }
