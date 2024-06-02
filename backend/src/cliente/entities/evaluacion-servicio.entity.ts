@@ -5,6 +5,6 @@ export class EvaluacionServicio {
     @PrimaryGeneratedColumn()
     cod_evaluacion_servicio: number;
 
-    @Column()
+    @Column({ type: "varchar", length: 200 })
     descripcion: string;
 }

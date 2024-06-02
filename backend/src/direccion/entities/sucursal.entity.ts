@@ -6,8 +6,8 @@ export class Sucursal {
     @PrimaryGeneratedColumn()
     cod_sucursal: number;
 
-    @Column()
-    nb_ciudad: number
+    @Column({ type: "varchar", length: 40 })
+    nb_sucursal: number
 
     @ManyToOne(() => Ciudad)
     @JoinColumn({name: 'cod_ciudad'})

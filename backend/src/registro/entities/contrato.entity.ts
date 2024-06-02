@@ -5,6 +5,6 @@ export class Contrato {
     @PrimaryGeneratedColumn()
     nro_contrato: number;
 
-    @Column()
+    @Column({ type: "varchar", length: 200 })
     descrip_contrato: string;
 }

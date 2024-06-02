@@ -5,6 +5,6 @@ export class Pais {
     @PrimaryGeneratedColumn()
     cod_pais: number;
 
-    @Column()
+    @Column({ type: "varchar", length: 40 })
     nb_pais: string;
 }

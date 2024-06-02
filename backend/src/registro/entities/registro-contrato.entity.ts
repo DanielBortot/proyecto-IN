@@ -3,6 +3,12 @@ import { Contrato } from "./contrato.entity";
 import { Producto } from "src/producto/entities/producto.entity";
 import { Cliente } from "src/cliente/entities/cliente.entity";
 
+export enum EnumEstadoContrato {
+    ACTIVO = "ACTIVO",
+    VENCIDO = "VENCIDO",
+    SUSPENDIDO = "SUSPENDIDO",
+}
+
 @Entity('registro_contrato')
 export class RegistroContrato {
     @PrimaryColumn()
@@ -19,16 +25,19 @@ export class RegistroContrato {
     @ManyToOne(() => Cliente)
     @JoinColumn({name: 'cod_cliente'})
     cod_cliente: number;
-
+      
     @Column('timestamptz')
     fecha_inicio: Date;
 
     @Column('timestamptz')
     fecha_fin: Date;
 
-    @Column()
+    @Column('numeric')
     monto: number;
 
-    @Column()
-    estado_contarto: string;
+    @Column({
+        type: "enum",
+        enum: EnumEstadoContrato,
+    })
+    estado_contarto: EnumEstadoContrato;
 }

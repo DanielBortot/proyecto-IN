@@ -5,6 +5,6 @@ export class Siniestro {
     @PrimaryGeneratedColumn()
     nro_siniestro: number;
 
-    @Column()
+    @Column( { type: "varchar", length: 200 } )
     descripcion_siniestro: string;
 }

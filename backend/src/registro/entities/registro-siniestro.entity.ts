@@ -2,11 +2,17 @@ import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { Siniestro } from "./siniestro.entity";
 import { Contrato } from "./contrato.entity";
 
+export enum EnumRechazo {
+    NO = "NO",
+    SI = "SI",
+}
+
 @Entity('registro_siniestro')
 export class RegistroSiniestro {
-    @PrimaryColumn()
+    
     @ManyToOne(() => Siniestro)
     @JoinColumn({name: 'nro_siniestro'})
+    @PrimaryColumn()
     nro_siniestro: number;
 
     @ManyToOne(() => Contrato)
@@ -20,12 +26,17 @@ export class RegistroSiniestro {
     @Column('timestamptz')
     fecha_respuesta: Date;
 
-    @Column()
+    @Column({
+        type: "enum",
+        enum: EnumRechazo,
+        nullable: true
+    })
     id_rechazo: string;
 
-    @Column()
+    @Column('numeric')
     monto_reconocido: number;
 
-    @Column()
+    @Column('numeric')
     monto_solicitado: number;
-}
+}    
+

@@ -1,24 +1,32 @@
 import { Sucursal } from "src/direccion/entities/sucursal.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
+export enum EnumSexo {
+    FEMENINO = 'F',
+    MASCULINO = 'M'
+}
+
 @Entity('cliente')
 export class Cliente {
     @PrimaryGeneratedColumn()
     cod_cliente: number;
 
-    @Column()
+    @Column({ type: "varchar", length: 40 })
     nb_cliente: string;
 
-    @Column()
+    @Column('varchar', { unique: true } )
     cedula: string;
 
-    @Column()
+    @Column('varchar', { unique: true } )
     telefono: string;
 
-    @Column()
-    sexo: string;
+    @Column({
+        type: "enum",
+        enum: EnumSexo,
+    })
+    sexo: EnumSexo;
 
-    @Column()
+    @Column({ type: "varchar", length: 40, unique: true })
     email: string;
 
     @ManyToOne(() => Sucursal)

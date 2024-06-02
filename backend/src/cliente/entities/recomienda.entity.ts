@@ -3,6 +3,11 @@ import { Cliente } from "./cliente.entity";
 import { EvaluacionServicio } from "./evaluacion-servicio.entity";
 import { Producto } from "src/producto/entities/producto.entity";
 
+export enum EnumRecomienda {
+    NO = "NO",
+    SI = "SI",
+}
+
 @Entity('recomienda')
 export class Recomienda {
     @PrimaryColumn()
@@ -20,6 +25,9 @@ export class Recomienda {
     @JoinColumn({name: 'cod_producto'})
     cod_producto: number;
 
-    @Column()
-    recomienda_amigo: string;
+    @Column({
+        type: "enum",
+        enum: EnumRecomienda,
+    })
+    recomienda_amigo: EnumRecomienda;
 }
