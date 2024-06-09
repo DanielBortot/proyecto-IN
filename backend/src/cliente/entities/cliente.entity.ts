@@ -21,6 +21,9 @@ export class Cliente {
     @Column()
     email: string;
 
+    @Column({length: 200})
+    direccion: string;
+
     @ManyToOne(() => Sucursal)
     @JoinColumn({name: 'cod_sucursal'})
     cod_sucursal: number;
