@@ -7,7 +7,7 @@ export class Sucursal {
     cod_sucursal: number;
 
     @Column()
-    nb_ciudad: number
+    nb_sucursal: string;
 
     @ManyToOne(() => Ciudad)
     @JoinColumn({name: 'cod_ciudad'})
