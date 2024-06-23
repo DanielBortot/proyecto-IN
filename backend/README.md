@@ -32,3 +32,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Upload the info
+
+You must have pentaho and use etl transactional ETL documents into pentaho to extract the info
