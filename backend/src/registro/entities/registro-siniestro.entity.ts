@@ -10,7 +10,7 @@ export class RegistroSiniestro {
     nro_siniestro: number;
 
     @ManyToOne(() => Contrato)
-    @JoinColumn({name: 'cod_contrato'})
+    @JoinColumn({name: 'nro_contrato'})
     @PrimaryColumn()
     nro_contrato: number;
 
