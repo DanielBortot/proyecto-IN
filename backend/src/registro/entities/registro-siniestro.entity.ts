@@ -10,9 +10,9 @@ export class RegistroSiniestro {
     nro_siniestro: number;
 
     @ManyToOne(() => Contrato)
-    @JoinColumn({name: 'cod_contrato'})
+    @JoinColumn({name: 'nro_contrato'})
     @PrimaryColumn()
-    cod_contrato: number;
+    nro_contrato: number;
 
     @PrimaryColumn('timestamptz')
     fecha_siniestro: Date;
